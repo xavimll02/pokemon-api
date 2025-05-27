@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.aleatest.pokemonapi"},{"l":"com.aleatest.pokemonapi.config"},{"l":"com.aleatest.pokemonapi.controller"},{"l":"com.aleatest.pokemonapi.dto"},{"l":"com.aleatest.pokemonapi.exception"},{"l":"com.aleatest.pokemonapi.service"}];updateSearchResults();

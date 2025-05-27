@@ -1,0 +1,99 @@
+openapi: 3.0.4
+info:
+  title: Pokemon Rankings API
+  version: v1
+  description: >
+    API that consumes the Poke API to retrieve lists of Pokemon filtered by different criteria:
+    the 5 Pokemon with the highest base experience, the tallest, and the heaviest.
+    Returns arrays of Pokemon objects including name, base experience, height, and weight.
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+tags:
+  - name: rankings
+    description: Endpoints related to ranking Pokemons by specific characteristics
+
+paths:
+  /api/v1/most-experience:
+    get:
+      tags:
+        - rankings
+      summary: Get the 5 Pokemon with the highest base experience
+      description: Returns a list of the 5 Pokemon with the highest base experience values.
+      operationId: getMostExperiencedPokemons
+      responses:
+        '200':
+          description: List of Pokemon sorted by descending base experience
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pokemon'
+
+  /api/v1/highest:
+    get:
+      tags:
+        - rankings
+      summary: Get the 5 tallest Pokemon
+      description: Returns a list of the 5 Pokemon with the greatest height.
+      operationId: getHighestPokemons
+      responses:
+        '200':
+          description: List of Pokemon sorted by descending height
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pokemon'
+
+  /api/v1/heaviest:
+    get:
+      tags:
+        - rankings
+      summary: Get the 5 heaviest Pokemon
+      description: Returns a list of the 5 Pokemon with the greatest weight.
+      operationId: getHeaviestPokemons
+      responses:
+        '200':
+          description: List of Pokemon sorted by descending weight
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pokemon'
+
+components:
+  schemas:
+    Pokemon:
+      type: object
+      description: Basic information about a Pokemon relevant to the queries
+      properties:
+        name:
+          type: string
+          description: Name of the Pokemon
+          example: pikachu
+        baseExperience:
+          type: integer
+          format: int32
+          description: Base experience points awarded when defeating the Pokemon
+          example: 112
+        height:
+          type: integer
+          format: int32
+          description: Height of the Pokemon in decimeters
+          example: 4
+        weight:
+          type: integer
+          format: int32
+          description: Weight of the Pokemon in hectograms
+          example: 60
+      required:
+        - name
+        - baseExperience
+        - height
+        - weight
