@@ -1,0 +1,6 @@
+com.aleatest.pokemonapi
+com.aleatest.pokemonapi.config
+com.aleatest.pokemonapi.controller
+com.aleatest.pokemonapi.dto
+com.aleatest.pokemonapi.exception
+com.aleatest.pokemonapi.service

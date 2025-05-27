@@ -1,0 +1,14 @@
+{
+    "properties": [
+        {
+        "name": "pokeapi.limit",
+        "type": "java.lang.Integer",
+        "description": "Maximum number of Pokemons to retrieve in a single call"
+        },
+        {
+        "name": "pokeapi.base-url",
+        "type": "java.lang.String",
+        "description": "PokeAPI base URL"
+        }
+    ]
+}
