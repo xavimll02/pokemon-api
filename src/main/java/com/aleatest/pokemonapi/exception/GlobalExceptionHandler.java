@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpClientErrorException.class)
     public ResponseEntity<ErrorResponse> handleHttpClientError(HttpClientErrorException ex) {
         return new ResponseEntity<>(
-            new ErrorResponse("Client error", ex.getResponseBodyAsString()),
+            new ErrorResponse("Client error", ex.getMessage()),
             ex.getStatusCode()
         );
     }
@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpServerErrorException.class)
     public ResponseEntity<ErrorResponse> handleHttpServerError(HttpServerErrorException ex) {
         return new ResponseEntity<>(
-            new ErrorResponse("Server error", ex.getResponseBodyAsString()),
+            new ErrorResponse("Server error", ex.getMessage()),
             ex.getStatusCode()
         );
     }

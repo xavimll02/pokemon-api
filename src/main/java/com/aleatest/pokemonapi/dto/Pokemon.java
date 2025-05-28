@@ -1,8 +1,11 @@
 package com.aleatest.pokemonapi.dto;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Represents a simplified Pokemon with basic attributes.
  */
+@AllArgsConstructor
 public class Pokemon {
 
     private String name;
