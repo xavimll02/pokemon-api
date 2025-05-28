@@ -53,8 +53,8 @@ public class PokemonController {
      * @return {@link ResponseEntity} containing a list of the 5 Pokemons with more base experience
      */
     @GetMapping("/most-experience")
-    public ResponseEntity<List<Pokemon>> getMostExperiencePokemons() {
-        List<Pokemon> pokemons = this.pokemonService.getMostExperiencePokemons();
+    public ResponseEntity<List<Pokemon>> getMostBaseExperiencePokemons() {
+        List<Pokemon> pokemons = this.pokemonService.getMostBaseExperiencePokemons();
         return ResponseEntity.ok(pokemons);
     }
 }

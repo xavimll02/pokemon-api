@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -106,6 +107,7 @@ public class PokemonService {
      * Retrieves the top 5 heaviest Pokemons.
      * @return a list of the top 5 heaviest Pokemons
      */
+    @Cacheable(value = "pokemonsCache", key = "'heaviest'")
     public List<Pokemon> getHeaviestPokemons() {
         return this.getTopPokemonsByFeature(Comparator.comparingInt(Pokemon::getWeight));
     }
@@ -114,6 +116,7 @@ public class PokemonService {
      * Retrieves the top 5 highest Pokemons.
      * @return a list of the top 5 highest Pokemons
      */
+    @Cacheable(value = "pokemonsCache", key = "'highest'")
     public List<Pokemon> getHighestPokemons() { 
         return this.getTopPokemonsByFeature(Comparator.comparingInt(Pokemon::getHeight));
     }
@@ -122,7 +125,8 @@ public class PokemonService {
      * Retrieves the 5 Pokemons with more base experience.
      * @return a list of the 5 Pokemons with more base experience
      */
-    public List<Pokemon> getMostExperiencePokemons() {
+    @Cacheable(value = "pokemonsCache", key = "'mostBaseExperience'")
+    public List<Pokemon> getMostBaseExperiencePokemons() {
          return this.getTopPokemonsByFeature(Comparator.comparingInt(Pokemon::getBaseExperience));
     }
 }
