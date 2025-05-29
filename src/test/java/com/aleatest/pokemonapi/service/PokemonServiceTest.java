@@ -66,7 +66,7 @@ class PokemonServiceTest {
             .thenReturn(new ResponseEntity<PokemonListResponse>(response, HttpStatus.OK));
         for (int i = 0; i < response.getResults().size(); i++) {
             when(restTemplate.getForEntity(response.getResults().get(i).getUrl(), Pokemon.class))
-                .thenReturn(new ResponseEntity<Pokemon>(pokemons.get(0), HttpStatus.OK));
+                .thenReturn(new ResponseEntity<Pokemon>(pokemons.get(i), HttpStatus.OK));
         }
     }
 
@@ -75,11 +75,11 @@ class PokemonServiceTest {
 
         List<Pokemon> result = pokemonService.getHeaviestPokemons();
         assertEquals(5, result.size());
-        assertEquals("Onix", result.get(0).getName());
-        assertEquals("Snorlax", result.get(1).getName());
-        assertEquals("Mewtwo", result.get(2).getName());
-        assertEquals("Charizard", result.get(3).getName());
-        assertEquals("Blastoise", result.get(4).getName());
+        assertEquals("Mewtwo", result.get(0).getName());
+        assertEquals("Blastoise", result.get(1).getName());
+        assertEquals("Charizard", result.get(2).getName());
+        assertEquals("Snorlax", result.get(3).getName());
+        assertEquals("Onix", result.get(4).getName());
     }
 
     @Test
@@ -87,11 +87,11 @@ class PokemonServiceTest {
         
         List<Pokemon> result = pokemonService.getHighestPokemons();
         assertEquals(5, result.size());
-        assertEquals("onix", result.get(0).getName());
-        assertEquals("rayquaza", result.get(1).getName());
-        assertEquals("snorlax", result.get(2).getName());
-        assertEquals("mewtwo", result.get(3).getName());
-        assertEquals("charizard", result.get(4).getName());
+        assertEquals("Onix", result.get(0).getName());
+        assertEquals("Snorlax", result.get(1).getName());
+        assertEquals("Mewtwo", result.get(2).getName());
+        assertEquals("Charizard", result.get(3).getName());
+        assertEquals("Blastoise", result.get(4).getName());
     }
 
     @Test
