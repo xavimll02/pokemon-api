@@ -1,9 +1,12 @@
 package com.aleatest.pokemonapi.dto;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Represents a Pokemon entry from a paginated list response.
  * Contains the Pokemon's name and a URL to its detailed resource.
  */
+@AllArgsConstructor
 public class PokemonEntry {
     
     private String name;

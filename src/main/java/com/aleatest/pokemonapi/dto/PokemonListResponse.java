@@ -2,10 +2,13 @@ package com.aleatest.pokemonapi.dto;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+
 /**
  * Represents the paginated response returned by the Poke API
  * when listing Pokemon entries.
  */
+@AllArgsConstructor
 public class PokemonListResponse {
     
     private int count;
