@@ -79,7 +79,7 @@ src/
 
 - `GET /api/v1/heaviest` - Returns the top 5 heaviest Pokemon
 - `GET /api/v1/highest` - Returns the top 5 highest Pokemon
-- `GET /api/v1/most-base-experience` - Returns the top 5 Pokemon with the most base experience
+- `GET /api/v1/most-experience` - Returns the top 5 Pokemon with the most base experience
 
 ## Running Locally
 
@@ -131,7 +131,7 @@ The application can be configured through `application.properties`:
 ## Documentation
 
 In the `docs` directory you can find:
-- **JavaDoc**: Complete API documentation with detailed explanations of each class and method
+- **javadoc**: Complete API documentation with detailed explanations of each class and method
 - **openapi.yaml**: OpenAPI specification that you can import into Swagger UI to test the API endpoints interactively
 
 ## Potential Improvements
